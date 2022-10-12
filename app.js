@@ -31,8 +31,8 @@ const eliminar = document.getElementById("btnEliminar");
 eliminar.addEventListener('click', () => {
 	let codigo = document.getElementById("codigo").valueAsNumber;
 	let producto = inventario.eliminar(codigo);
-	if(producto !== null) {
-		document.getElementById('resultado').innerHTML = producto.infoHTML();
+	if(producto !== false) {
+		document.getElementById('resultado').innerHTML = `Se eliminó el producto`;
 	} else {
 		document.getElementById('resultado').innerHTML = '<p>El producto no existe</p>';
 	}

@@ -4,6 +4,7 @@ class Producto {
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.costo = costo;
+		this.siguiente = null;
 	}
 
 	info() {
