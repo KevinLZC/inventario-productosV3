@@ -32,7 +32,7 @@ eliminar.addEventListener('click', () => {
 	let codigo = document.getElementById("codigo").valueAsNumber;
 	let producto = inventario.eliminar(codigo);
 	if(producto !== false) {
-		document.getElementById('resultado').innerHTML = `Se eliminó el producto`;
+		document.getElementById('resultado').innerHTML = `Se eliminó el producto con el código: ${codigo}`;
 	} else {
 		document.getElementById('resultado').innerHTML = '<p>El producto no existe</p>';
 	}
@@ -40,12 +40,12 @@ eliminar.addEventListener('click', () => {
 
 const listar = document.getElementById("btnListar");
 listar.addEventListener('click', () => {
-	document.getElementById('resultado').innerHTML = `<p>${inventario.listar()}</p>` ;
+	document.getElementById('resultado').innerHTML = `<p>Productos registrados: <br>${inventario.listar()}</p>` ;
 });
 
 const listarInverso = document.getElementById("btnListarInverso");
 listarInverso.addEventListener('click', () => {
-	document.getElementById('resultado').innerHTML = `<p>${inventario.listarInverso()}</p>`;
+	document.getElementById('resultado').innerHTML = `<p>Productos registrados: <br>${inventario.listarInverso()}</p>`;
 });
 
 const limpiar = document.getElementById('btnLimpiar');

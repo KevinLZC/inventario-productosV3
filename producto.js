@@ -14,10 +14,7 @@ class Producto {
 	infoHTML() {
 		return `
 			<p>
-				Código: ${this.codigo}<br>
-				Nombre: ${this.nombre}<br>
-				Cantidad: ${this.cantidad}<br>
-				Costo: ${this.costo}
+				Código: ${this.codigo} - Nombre: ${this.nombre} - Cantidad: ${this.cantidad} - Costo: ${this.costo}
 			</p>`
 	}
 }

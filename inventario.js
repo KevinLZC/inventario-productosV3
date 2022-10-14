@@ -76,23 +76,17 @@ class Inventario {
 
 	listarInverso() {
 		if(this.primero == null) {
-			return "No existe ningún producto registrado"
-		}
-		
-		return listado
+        return "No existen productos registrados";
+      } else {
+        return this.listaRecursiva(this.primero);
+      }
 	}
 
-	determinarUltimo() {
-		let previo = null;
-		let actual = this.primero;
-		let siguiente = null;
-
-		while(actual !== null) {
-			siguiente = actual.siguiente;
-			actual = previo;
-			previo = actual;
-			actual = siguiente;
-		}
-		this.primero = previo;
-	}
+	listaRecursiva(producto) {
+      if(producto.siguiente == null) {
+        return producto.infoHTML();
+      } else {
+        return `${this.listaRecursiva(producto.siguiente)} ${producto.infoHTML()}`;
+      }
+    }
 }
