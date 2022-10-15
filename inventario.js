@@ -1,6 +1,7 @@
 class Inventario {
 	constructor() {
 		this.primero = null;
+		this.dimension = 0;
 	}
 
 	agregar(nuevo) {
@@ -10,6 +11,7 @@ class Inventario {
 
 		if(this.primero === null) {
 			this.primero = nuevo;
+			this.dimension++;
 			return true;
 		} else {
 			let aux = this.primero;
@@ -17,8 +19,9 @@ class Inventario {
 				aux=aux.siguiente;
 			}
 			aux.siguiente = nuevo;
+			this.dimension++;
 			return true;
-		}
+		}	
 	}
 
 	comprobarCodigo(codigo) {
@@ -30,6 +33,33 @@ class Inventario {
 			aux = aux.siguiente;
 		}
 		return true;
+	}
+
+	insertar(nuevo, posicion) {
+		if((this.dimension === 0 && posicion < 0) || (this.dimension !== 0 && posicion > this.dimension)) {
+			return false;
+		}
+
+		if(this.primero === null) {
+			this.primero = nuevo;
+			return true;
+		} else if(posicion === 1) {
+			nuevo.siguiente = this.primero;
+			this.primero = nuevo;
+			return true;
+		} else {
+			let aux = this.primero;
+			let contador = 1;
+			while(contador !== posicion) {
+				if(contador + 1 === posicion) {
+					let tmp = aux;
+					nuevo.siguiente = aux.siguiente;
+					tmp.siguiente = nuevo;
+				}
+				aux = aux.siguiente;
+				contador++;
+			}
+		} 		
 	}
 
 	buscar(codigo) {
@@ -46,6 +76,7 @@ class Inventario {
 	eliminar(codigo) {
 		if(this.primero.codigo === codigo) {
 			this.primero = this.primero.siguiente;
+			this.dimension--;
 			return true;
 		}
 
@@ -53,6 +84,7 @@ class Inventario {
 		while(aux.siguiente !== null) {
 			if(aux.siguiente.codigo === codigo) {
 				aux.siguiente = aux.siguiente.siguiente;
+				this.dimension--;
 				return true;
 			}
 			aux = aux.siguiente;

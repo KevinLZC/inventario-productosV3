@@ -16,6 +16,17 @@ agregar.addEventListener('click', () => {
 	}
 });
 
+const insertar = document.getElementById("btnInsertar");
+insertar.addEventListener('click', () => {
+	let codigo = document.getElementById("codigo").valueAsNumber;
+	let nombre = document.getElementById("nombre").value;
+	let cantidad = document.getElementById("cantidad").value;
+	let costo = document.getElementById("costo").value;	
+	let posicion = document.getElementById("posicion").valueAsNumber;
+	let estado = inventario.insertar(new Producto(codigo, nombre, cantidad, costo), posicion);
+	console.log(estado);
+})
+
 const buscar = document.getElementById("btnBuscar");
 buscar.addEventListener('click', () => {
 	let codigo = document.getElementById("codigo").valueAsNumber;
