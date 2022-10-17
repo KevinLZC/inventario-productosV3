@@ -24,7 +24,11 @@ insertar.addEventListener('click', () => {
 	let costo = document.getElementById("costo").value;	
 	let posicion = document.getElementById("posicion").valueAsNumber;
 	let estado = inventario.insertar(new Producto(codigo, nombre, cantidad, costo), posicion);
-	console.log(estado);
+	if(estado) {
+		document.getElementById('resultado').innerHTML = `<p>El producto se añadió en la posicion ${posicion}</p>`
+	} else if(!estado){
+		document.getElementById('resultado').innerHTML = "<p>Posición inválida</p>"
+	}
 })
 
 const buscar = document.getElementById("btnBuscar");

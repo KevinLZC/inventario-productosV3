@@ -55,6 +55,7 @@ class Inventario {
 					let tmp = aux;
 					nuevo.siguiente = aux.siguiente;
 					tmp.siguiente = nuevo;
+					return true
 				}
 				aux = aux.siguiente;
 				contador++;
